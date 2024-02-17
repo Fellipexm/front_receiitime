@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receita Times</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://i.postimg.cc/85TbjNnZ/images-removebg-preview.png">
+</head>
+<body>
+    <h1>Receita Times 👨‍🍳</h1>
+    <div id="search-recipe">
+        <h2>Pesquisar Receitas</h2>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Digite o nome da receita">
+            <button type="submit" id="pesquisa">Pesquisar</button>
+        </form>
+    </div>
+
+    <div id="recipe-container"></div>
+
+    <div id="add-recipe-form">
+        <h2>Adicionar Receita</h2>
+        <form id="recipe-form">
+            <label for="user-name">Seu Nome:</label>
+            <input type="text" id="user-name" name="user-name"><br>
+            <label for="recipe-name">Nome da Receita:</label>
+            <input type="text" id="recipe-name" name="recipe-name"><br>
+            <label for="ingredients">Ingredientes (separe por vírgulas):</label>
+            <input type="text" id="ingredients" name="ingredients"><br>
+            <label for="instructions">Instruções:</label>
+            <textarea id="instructions" name="instructions"></textarea><br>
+            <button type="submit">Adicionar Receita</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

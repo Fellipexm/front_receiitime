@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: lightskyblue;
+    animation: fadeIn 1s ease-in-out; /* Animação de fade-in para o corpo */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.recipe {
+    background-color: lightgreen;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-in-out; /* Animação de slide-in para as receitas */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.recipe h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 0;
+    animation: fadeInDown 1s ease-in-out; /* Animação de fade-in e slide-down para os títulos das receitas */
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.recipe p {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin-top: 5px;
+    animation: fadeInUp 1s ease-in-out; /* Animação de fade-in e slide-up para os parágrafos das receitas */
+}
+
+#search-recipe {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-in-out; /* Animação de slide-in para o contêiner de pesquisa */
+   
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#add-recipe-form {
+    margin-bottom: 20px;
+    animation: slideInRight 1s ease-in-out; /* Animação de slide-in da direita para o formulário de adicionar receita */
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#add-recipe-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#add-recipe-form input[type="text"],
+#add-recipe-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#add-recipe-form button {
+    display: block; /* Tornar o botão um elemento de bloco */
+    margin: 0 auto; /* Margem automática horizontalmente para centralizar */
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: fadeIn 1s ease-in-out; /* Animação de fade-in para o botão */
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serifs;
+}
+
+/* Adicionando estilos ao formulário de pesquisa */
+#search-recipe {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-input {
+    padding: 8px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#search-input::placeholder {
+    color: #aaa;
+}
+
+#search-input:focus::placeholder {
+    color: transparent;
+}
+
+#pesquisa {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#pesquisa:hover {
+    background-color: #0056b3;
+}
+
