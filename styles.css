@@ -62,34 +62,11 @@ body {
     text-align: center;
     margin-bottom: 20px;
     animation: slideIn 1s ease-in-out; /* Animação de slide-in para o contêiner de pesquisa */
-   
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 #add-recipe-form {
     margin-bottom: 20px;
     animation: slideInRight 1s ease-in-out; /* Animação de slide-in da direita para o formulário de adicionar receita */
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 #add-recipe-form label {
@@ -168,3 +145,42 @@ h1 {
     background-color: #0056b3;
 }
 
+#eu {
+    text-align: center;
+}
+
+
+#linkedin {
+    position: absolute;
+    width: 40px;
+    top: 1090px;
+    left: 30px;
+}
+
+
+#ista {
+    position: absolute;
+    width: 40px;
+    top: 1090px;
+    right:  30px;
+}
+
+/* Estilos responsivos para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+    #linkedin {
+        position: absolute;
+        width: 40px;
+        top: 1520px;
+        left: 30px;
+    }
+    
+    
+    #ista {
+        position: absolute;
+        width: 40px;
+        top: 1520px;
+        right:  30px;
+    }
+      
+  
+}
