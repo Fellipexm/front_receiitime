@@ -13,12 +13,22 @@ async function addRecipe(event) {
 
     const form = event.target;
     const formData = new FormData(form);
+    const userName = formData.get('user-name');
+    const recipeName = formData.get('recipe-name');
+    const ingredients = formData.get('ingredients');
+    const instructions = formData.get('instructions');
+
+    // Verifica se todos os campos estão preenchidos
+    if (!userName || !recipeName || !ingredients || !instructions) {
+        alert('Por favor, preencha todos os campos do formulário.');
+        return; // Impede o envio do formulário se algum campo estiver vazio
+    }
 
     const newRecipe = {
-        userName: formData.get('user-name'),
-        recipeName: formData.get('recipe-name'),
-        ingredients: formData.get('ingredients').split(','),
-        instructions: formData.get('instructions')
+        userName,
+        recipeName,
+        ingredients: ingredients.split(','),
+        instructions
     };
 
     try {

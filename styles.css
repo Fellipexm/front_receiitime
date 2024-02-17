@@ -3,13 +3,15 @@ body {
     margin: 0;
     padding: 20px;
     background-color: lightskyblue;
-    animation: fadeIn 1s ease-in-out; /* Animação de fade-in para o corpo */
+    animation: fadeIn 1s ease-in-out;
+    /* Animação de fade-in para o corpo */
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -21,7 +23,8 @@ body {
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
-    animation: slideIn 1s ease-in-out; /* Animação de slide-in para as receitas */
+    animation: slideIn 1s ease-in-out;
+    /* Animação de slide-in para as receitas */
 }
 
 @keyframes slideIn {
@@ -29,6 +32,7 @@ body {
         transform: translateY(-20px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
@@ -38,7 +42,8 @@ body {
 .recipe h2 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-top: 0;
-    animation: fadeInDown 1s ease-in-out; /* Animação de fade-in e slide-down para os títulos das receitas */
+    animation: fadeInDown 1s ease-in-out;
+    /* Animação de fade-in e slide-down para os títulos das receitas */
 }
 
 @keyframes fadeInDown {
@@ -46,6 +51,7 @@ body {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -55,18 +61,21 @@ body {
 .recipe p {
     font-family: Comic Sans MS, Comic Sans, cursive;
     margin-top: 5px;
-    animation: fadeInUp 1s ease-in-out; /* Animação de fade-in e slide-up para os parágrafos das receitas */
+    animation: fadeInUp 1s ease-in-out;
+    /* Animação de fade-in e slide-up para os parágrafos das receitas */
 }
 
 #search-recipe {
     text-align: center;
     margin-bottom: 20px;
-    animation: slideIn 1s ease-in-out; /* Animação de slide-in para o contêiner de pesquisa */
+    animation: slideIn 1s ease-in-out;
+    /* Animação de slide-in para o contêiner de pesquisa */
 }
 
 #add-recipe-form {
     margin-bottom: 20px;
-    animation: slideInRight 1s ease-in-out; /* Animação de slide-in da direita para o formulário de adicionar receita */
+    animation: slideInRight 1s ease-in-out;
+    /* Animação de slide-in da direita para o formulário de adicionar receita */
 }
 
 #add-recipe-form label {
@@ -82,15 +91,18 @@ body {
 }
 
 #add-recipe-form button {
-    display: block; /* Tornar o botão um elemento de bloco */
-    margin: 0 auto; /* Margem automática horizontalmente para centralizar */
+    display: block;
+    /* Tornar o botão um elemento de bloco */
+    margin: 0 auto;
+    /* Margem automática horizontalmente para centralizar */
     padding: 8px 15px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    animation: fadeIn 1s ease-in-out; /* Animação de fade-in para o botão */
+    animation: fadeIn 1s ease-in-out;
+    /* Animação de fade-in para o botão */
 }
 
 h1 {
@@ -150,37 +162,26 @@ h1 {
 }
 
 
-#linkedin {
-    position: absolute;
-    width: 40px;
-    top: 1090px;
-    left: 30px;
-}
-
-
-#ista {
-    position: absolute;
-    width: 40px;
-    top: 1090px;
-    right:  30px;
-}
 
 /* Estilos responsivos para dispositivos móveis */
 @media only screen and (max-width: 600px) {
     #linkedin {
         position: absolute;
         width: 40px;
-        top: 1520px;
+        top: 2500px;
         left: 30px;
     }
-    
-    
+
+
     #ista {
         position: absolute;
         width: 40px;
-        top: 1520px;
-        right:  30px;
+        top: 2500px;
+        right: 30px;
     }
-      
+
+
   
+
+
 }
