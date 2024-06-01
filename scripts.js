@@ -1,10 +1,25 @@
+function displayLoadingMessage() {
+    const recipeContainer = document.getElementById('recipe-container');
+    recipeContainer.innerHTML = '<div id="loading-message">Carregando...</div>';
+}
+
+function hideLoadingMessage() {
+    const loadingMessage = document.getElementById('loading-message');
+    if (loadingMessage) {
+        loadingMessage.style.display = 'none';
+    }
+}
+
 async function getRecipes() {
     try {
+        displayLoadingMessage();
         const response = await fetch('https://api-receitas-jhoj.onrender.com/recipes');
         const recipes = await response.json();
         displayRecipes(recipes);
     } catch (error) {
         console.error('Erro ao buscar as receitas:', error);
+    } finally {
+        hideLoadingMessage();
     }
 }
 
@@ -18,10 +33,9 @@ async function addRecipe(event) {
     const ingredients = formData.get('ingredients');
     const instructions = formData.get('instructions');
 
-    // Verifica se todos os campos estão preenchidos
     if (!userName || !recipeName || !ingredients || !instructions) {
         alert('Por favor, preencha todos os campos do formulário.');
-        return; // Impede o envio do formulário se algum campo estiver vazio
+        return;
     }
 
     const newRecipe = {
@@ -42,7 +56,7 @@ async function addRecipe(event) {
         if (response.ok) {
             console.log('Receita adicionada com sucesso!');
             form.reset();
-            getRecipes(); // Atualiza a lista de receitas exibida na página
+            getRecipes();
         } else {
             console.error('Erro ao adicionar a receita:', response.statusText);
         }
@@ -62,60 +76,44 @@ async function searchRecipes(keyword) {
 }
 
 async function handleSearch(event) {
-    event.preventDefault(); // Evita o comportamento padrão de enviar o formulário
-
+    event.preventDefault();
     const searchInput = document.getElementById('search-input').value.trim();
     if (searchInput !== '') {
         await searchRecipes(searchInput);
     } else {
-        // Se a entrada de pesquisa estiver vazia, exiba todas as receitas novamente
         getRecipes();
     }
 }
 
 function displayRecipes(recipes) {
     const recipeContainer = document.getElementById('recipe-container');
-    recipeContainer.innerHTML = ''; // Limpa o conteúdo do contêiner
-
+    recipeContainer.innerHTML = '';
     const searchInput = document.getElementById('search-input').value.trim();
     if (recipes.length === 0) {
-        // Se não houver receitas, exibe uma mensagem de "Carregando..."
-        recipeContainer.innerHTML = '<p>Carregando...</p>';
+        recipeContainer.innerHTML = '<p>Nenhuma receita encontrada.</p>';
     } else {
         recipes.forEach(recipe => {
-            // Verifica se o nome da receita corresponde ao termo de pesquisa
             if (recipe.recipeName.toLowerCase().includes(searchInput.toLowerCase())) {
                 const recipeDiv = document.createElement('div');
                 recipeDiv.classList.add('recipe');
-
                 const title = document.createElement('h2');
                 title.textContent = recipe.recipeName;
-
                 const userName = document.createElement('p');
                 userName.textContent = 'Nome do Usuário: ' + recipe.userName;
-
                 const ingredients = document.createElement('p');
                 ingredients.textContent = 'Ingredientes: ' + recipe.ingredients.join(', ');
-
                 const instructions = document.createElement('p');
                 instructions.textContent = 'Instruções: ' + recipe.instructions;
-
                 recipeDiv.appendChild(title);
                 recipeDiv.appendChild(userName);
                 recipeDiv.appendChild(ingredients);
                 recipeDiv.appendChild(instructions);
-
                 recipeContainer.appendChild(recipeDiv);
             }
         });
     }
 }
 
-// Adiciona um ouvinte de evento para o envio do formulário de adicionar receita
 document.getElementById('recipe-form').addEventListener('submit', addRecipe);
-
-// Adiciona um ouvinte de evento para o envio do formulário de pesquisa
 document.getElementById('search-form').addEventListener('submit', handleSearch);
-
-// Chama a função para buscar e exibir as receitas quando a página carrega
 window.onload = getRecipes;
