@@ -78,32 +78,37 @@ function displayRecipes(recipes) {
     recipeContainer.innerHTML = ''; // Limpa o conteúdo do contêiner
 
     const searchInput = document.getElementById('search-input').value.trim();
-    recipes.forEach(recipe => {
-        // Verifica se o nome da receita corresponde ao termo de pesquisa
-        if (recipe.recipeName.toLowerCase().includes(searchInput.toLowerCase())) {
-            const recipeDiv = document.createElement('div');
-            recipeDiv.classList.add('recipe');
+    if (recipes.length === 0) {
+        // Se não houver receitas, exibe uma mensagem de "Carregando..."
+        recipeContainer.innerHTML = '<p>Carregando...</p>';
+    } else {
+        recipes.forEach(recipe => {
+            // Verifica se o nome da receita corresponde ao termo de pesquisa
+            if (recipe.recipeName.toLowerCase().includes(searchInput.toLowerCase())) {
+                const recipeDiv = document.createElement('div');
+                recipeDiv.classList.add('recipe');
 
-            const title = document.createElement('h2');
-            title.textContent = recipe.recipeName;
+                const title = document.createElement('h2');
+                title.textContent = recipe.recipeName;
 
-            const userName = document.createElement('p');
-            userName.textContent = 'Nome do Usuário: ' + recipe.userName;
+                const userName = document.createElement('p');
+                userName.textContent = 'Nome do Usuário: ' + recipe.userName;
 
-            const ingredients = document.createElement('p');
-            ingredients.textContent = 'Ingredientes: ' + recipe.ingredients.join(', ');
+                const ingredients = document.createElement('p');
+                ingredients.textContent = 'Ingredientes: ' + recipe.ingredients.join(', ');
 
-            const instructions = document.createElement('p');
-            instructions.textContent = 'Instruções: ' + recipe.instructions;
+                const instructions = document.createElement('p');
+                instructions.textContent = 'Instruções: ' + recipe.instructions;
 
-            recipeDiv.appendChild(title);
-            recipeDiv.appendChild(userName);
-            recipeDiv.appendChild(ingredients);
-            recipeDiv.appendChild(instructions);
+                recipeDiv.appendChild(title);
+                recipeDiv.appendChild(userName);
+                recipeDiv.appendChild(ingredients);
+                recipeDiv.appendChild(instructions);
 
-            recipeContainer.appendChild(recipeDiv);
-        }
-    });
+                recipeContainer.appendChild(recipeDiv);
+            }
+        });
+    }
 }
 
 // Adiciona um ouvinte de evento para o envio do formulário de adicionar receita
